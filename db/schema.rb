@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429010119) do
+ActiveRecord::Schema.define(version: 20150501004539) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line1"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20150429010119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cars", force: :cascade do |t|
+    t.string   "color"
+    t.string   "brand"
+    t.string   "plate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cars_people", id: false, force: :cascade do |t|
+    t.integer "car_id",    null: false
+    t.integer "person_id", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string   "nombre"
     t.string   "apellido"
@@ -29,5 +42,15 @@ ActiveRecord::Schema.define(version: 20150429010119) do
     t.datetime "updated_at"
     t.integer  "ci"
   end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "twitter_url"
+    t.string   "github_url"
+    t.integer  "person_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "profiles", ["person_id"], name: "index_profiles_on_person_id"
 
 end
