@@ -14,8 +14,13 @@
         <td><%= p.full_name %></td>
         <td>
           <%= link_to "Ver", person_path(p) %>
+          <%= link_to "Editar", edit_person_path(p) %>
+          <%= link_to "Eliminar", person_path(p), method: :delete %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</br>
+
+<%= link_to "Nueva Persona", new_person_path %>

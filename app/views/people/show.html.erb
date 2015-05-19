@@ -34,10 +34,17 @@
         <td><%= address.state %></td>
         <td>
           <%= link_to "Eliminar", person_address_path(@person, address), method: :delete, confirm: "¿Estás seguro?" %>
+          <%= link_to "Editar", edit_person_address_path(@person, address) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</br>
+
+<br/>
+<%= link_to "Asociar Carro", asociar_car_person_path(@person) %>
+<br/>
+
+<%= link_to "Agregar Direccion", new_person_address_path(@person) %>
+<br/>
 <%= link_to "Regresar", people_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for @person do |f| %>
+  <%= f.input :nombre %>
+  <%= f.input :apellido %>
+  <%= f.input :ci %>
+  
+  <h3>Direccion</h3>
+
+    <%= f.simple_fields_for :addresses do |m| %>
+      <%= m.input :line1 %>
+      <%= m.input :line2 %>
+      <%= m.input :state %>
+    <% end %>
+  <%= f.submit %>
+<% end %>
